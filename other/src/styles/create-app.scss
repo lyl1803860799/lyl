@@ -1,0 +1,7 @@
+.page-create-app {
+}
+.screen-size {
+  .ant-input-number {
+    @include inputNumberStyle;
+  }
+}

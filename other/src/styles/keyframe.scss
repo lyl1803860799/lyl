@@ -1,0 +1,77 @@
+/*流动线条*/
+@keyframes flowingLight {
+  from {
+    left: -60px;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+@-moz-keyframes flowingLight {
+  from {
+    left: -60px;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+@-webkit-keyframes flowingLight {
+  from {
+    left: -60px;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+@-o-keyframes flowingLight {
+  from {
+    left: -60px;
+  }
+
+  to {
+    left: 100%;
+  }
+}
+
+/*自动旋转*/
+@keyframes clockwiseRotate {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+  }
+}
+
+@keyframes counterclockwiseRotate {
+  0% {
+    transform: rotate(0);
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+  }
+}

@@ -1,0 +1,183 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2950930 */
+  src: url('iconfont.woff2?t=1637566227589') format('woff2'),
+       url('iconfont.woff?t=1637566227589') format('woff'),
+       url('iconfont.ttf?t=1637566227589') format('truetype');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-duoyun:before {
+  content: "\e600";
+}
+
+.icon-weather-3:before {
+  content: "\e6e5";
+}
+
+.icon-weather-9:before {
+  content: "\e6e6";
+}
+
+.icon-weather-8:before {
+  content: "\e6e7";
+}
+
+.icon-weather-11:before {
+  content: "\e6e8";
+}
+
+.icon-weather-10:before {
+  content: "\e6e9";
+}
+
+.icon-weather-1:before {
+  content: "\e6ea";
+}
+
+.icon-weather-12:before {
+  content: "\e6eb";
+}
+
+.icon-weather-5:before {
+  content: "\e6ec";
+}
+
+.icon-weather-13:before {
+  content: "\e6ed";
+}
+
+.icon-thunder:before {
+  content: "\e6ee";
+}
+
+.icon-weather-4:before {
+  content: "\e6ef";
+}
+
+.icon-weather-15:before {
+  content: "\e6f0";
+}
+
+.icon-hail:before {
+  content: "\e6f1";
+}
+
+.icon-weather-17:before {
+  content: "\e6f2";
+}
+
+.icon-weather-16:before {
+  content: "\e6f3";
+}
+
+.icon-weather-7:before {
+  content: "\e6f4";
+}
+
+.icon-weather-19:before {
+  content: "\e6f5";
+}
+
+.icon-stand-storm:before {
+  content: "\e6f6";
+}
+
+.icon-floating-dust:before {
+  content: "\e6f7";
+}
+
+.icon-weather-21:before {
+  content: "\e6f8";
+}
+
+.icon-haze:before {
+  content: "\e6f9";
+}
+
+.icon-frost:before {
+  content: "\e6fa";
+}
+
+.icon-fahrenheit-degree:before {
+  content: "\e6fb";
+}
+
+.icon-force-5-wind:before {
+  content: "\e6fc";
+}
+
+.icon-typhoon:before {
+  content: "\e6fd";
+}
+
+.icon-force-6-wind:before {
+  content: "\e6fe";
+}
+
+.icon-force-7-wind:before {
+  content: "\e6ff";
+}
+
+.icon-force-8-wind:before {
+  content: "\e700";
+}
+
+.icon-force-9-wind:before {
+  content: "\e701";
+}
+
+.icon-force-11-wind:before {
+  content: "\e702";
+}
+
+.icon-force-12-wind:before {
+  content: "\e703";
+}
+
+.icon-night:before {
+  content: "\e704";
+}
+
+.icon-rain:before {
+  content: "\e705";
+}
+
+.icon-sunset:before {
+  content: "\e706";
+}
+
+.icon-temperature:before {
+  content: "\e707";
+}
+
+.icon-wind-direction:before {
+  content: "\e708";
+}
+
+.icon-humidity:before {
+  content: "\e709";
+}
+
+.icon-spring:before {
+  content: "\e70a";
+}
+
+.icon-summer:before {
+  content: "\e70b";
+}
+
+.icon-force-10-wind:before {
+  content: "\e70c";
+}
+
+.icon-autumn:before {
+  content: "\e70d";
+}
+

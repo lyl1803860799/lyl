@@ -1,0 +1,278 @@
+<template>
+  <a-form
+    class="basic-line"
+    :colon="false"
+    :form="form"
+    labelAlign="left"
+    :labelCol="{ span: 5 }"
+    :wrapperCol="{ span: 18 }"
+  >
+    <a-collapse v-model="activeKey" expandIconPosition="right">
+      <!-- <a-collapse-panel header="标题样式">
+        <a-form-item label="" :labelCol="{ span: 0 }" :wrapperCol="{ span: 24 }" class="m-bottom-0">
+          <title-style v-decorator="['title', { initialValue: formData.title }]" />
+        </a-form-item>
+      </a-collapse-panel>-->
+      <a-collapse-panel key="1" header="组件大小" v-if="showComponent">
+        <a-form-item label :labelCol="{ span: 0 }" :wrapperCol="{ span: 24 }" class="m-bottom-0">
+          <component-size
+            v-decorator="['component', { initialValue: formData.component }]"
+            @change="refreshChart"
+          />
+        </a-form-item>
+      </a-collapse-panel>
+      <a-collapse-panel key="2" header="边距设置">
+        <a-form-item label :labelCol="{ span: 0 }" :wrapperCol="{ span: 24 }" class="m-bottom-0">
+          <grid
+            v-decorator="['contentOption.grid', { initialValue: formData.contentOption.grid }]"
+          />
+        </a-form-item>
+      </a-collapse-panel>
+      <a-collapse-panel key="3" header="坐标轴">
+        <a-tabs default-active-key="1">
+          <a-tab-pane key="1" tab="X轴">
+            <a-form-item
+              label
+              :labelCol="{ span: 0 }"
+              :wrapperCol="{ span: 24 }"
+              class="m-bottom-0"
+            >
+              <x-axis
+                v-decorator="[
+                  'contentOption.xAxis',
+                  { initialValue: formData.contentOption.xAxis }
+                ]"
+                @change="refreshChart"
+              />
+            </a-form-item>
+          </a-tab-pane>
+          <a-tab-pane key="2" v-if="yType === 0" tab="Y轴" force-render>
+            <a-form-item
+              label
+              :labelCol="{ span: 0 }"
+              :wrapperCol="{ span: 24 }"
+              class="m-bottom-0"
+            >
+              <y-axis
+                :elId="0"
+                v-decorator="[
+                  'contentOption.yAxis',
+                  { initialValue: formData.contentOption.yAxis }
+                ]"
+                @change="refreshChart"
+              />
+            </a-form-item>
+          </a-tab-pane>
+
+          <a-tab-pane key="2" v-if="yType === 1" tab="Y轴" force-render>
+            <a-form-item
+              label
+              :labelCol="{ span: 0 }"
+              :wrapperCol="{ span: 24 }"
+              class="m-bottom-0"
+            >
+              <y-axis
+                :elId="0"
+                v-decorator="[
+                  'contentOption.yAxis[0]',
+                  { initialValue: formData.contentOption.yAxis[0] }
+                ]"
+                @change="refreshChart"
+              />
+            </a-form-item>
+          </a-tab-pane>
+          <a-tab-pane key="3" v-if="yType === 1" tab="Y轴2" force-render>
+            <a-form-item
+              label
+              :labelCol="{ span: 0 }"
+              :wrapperCol="{ span: 24 }"
+              class="m-bottom-0"
+            >
+              <y-axis
+                :elId="1"
+                v-decorator="[
+                  'contentOption.yAxis[1]',
+                  { initialValue: formData.contentOption.yAxis[1] }
+                ]"
+                @change="refreshChart"
+              />
+            </a-form-item>
+          </a-tab-pane>
+        </a-tabs>
+      </a-collapse-panel>
+      <a-collapse-panel key="4" header="图例">
+        <a-form-item label :labelCol="{ span: 0 }" :wrapperCol="{ span: 24 }" class="m-bottom-0">
+          <Legend
+            v-decorator="['contentOption.legend', { initialValue: formData.contentOption.legend }]"
+            @change="refreshChart"
+          />
+        </a-form-item>
+      </a-collapse-panel>
+      <a-collapse-panel key="5" header="图形效果">
+        <a-form-item label :labelCol="{ span: 0 }" :wrapperCol="{ span: 24 }" class="m-bottom-0">
+          <SeriesStyle
+            v-decorator="['seriesStyle', { initialValue: seriesStyle }]"
+            @change="refreshChart"
+          />
+        </a-form-item>
+      </a-collapse-panel>
+    </a-collapse>
+  </a-form>
+</template>
+
+<script>
+import ComponentSize from "@/components/componentSize";
+//import TitleStyle from '@/components/titleStyle'
+import Grid from "@/components/grid";
+import XAxis from "@/components/xAxis";
+import YAxis from "@/components/yAxis";
+import Legend from "@/components/legend";
+import SeriesStyle from "@/components/seriesStyle";
+
+export default {
+  name: "LineSimple",
+  props: {
+    option: {
+      type: Object
+    },
+    showComponent: {
+      default: true
+    }
+  },
+  data() {
+    const self = this;
+    return {
+      yType: 0,
+      activeKey: ["1", "2", "3", "4", "5"],
+      form: this.$form.createForm(this, {
+        name: "line-simple",
+        onValuesChange(props, values) {
+          if (values.seriesStyle !== undefined) {
+            values = {
+              contentOption: {
+                ...self.formData.contentOption,
+                ...values.seriesStyle
+              }
+            };
+          } else if (values.contentOption !== undefined) {
+            if (values.contentOption.yAxis !== undefined) {
+              const yAxis = values.contentOption.yAxis;
+              if(yAxis instanceof Array){
+                let index = yAxis.findIndex(item => !!item);
+                self.formData.contentOption.yAxis.splice(index, 1, yAxis[index]);
+              }else{
+                self.formData.contentOption.yAxis = yAxis;
+              }
+              values = {
+                contentOption: {
+                  ...self.formData.contentOption
+                }
+              };
+            } else {
+              values = {
+                contentOption: {
+                  ...self.formData.contentOption,
+                  ...values.contentOption
+                }
+              };
+            }
+          }
+          self.$emit("option-updated", values);
+        }
+      }),
+      formData: {
+        title: {},
+        component: {},
+        contentOption: {
+          xAxis: {
+            axisLabel: {},
+            axisLine: {},
+            splitLine: {}
+          },
+          yAxis: {
+            axisLabel: {},
+            axisLine: {},
+            splitLine: {}
+          },
+          legend: {},
+          wholeRender: 0
+        }
+      },
+      seriesStyle: {},
+      areaColor: ""
+    };
+  },
+  components: {
+    //TitleStyle,
+    ComponentSize,
+    Grid,
+    Legend,
+    XAxis,
+    YAxis,
+    SeriesStyle
+  },
+  watch: {
+    option: {
+      deep: true,
+      immediate: true,
+      handler(val) {
+        //let v = JSON.parse(JSON.stringify(val));
+        val.contentOption.series.map(item => {
+          if (!item.isShowArea) {
+            delete item.areaStyle;
+          }
+        });
+        console.log(val.contentOption.yAxis);
+        // if(v.contentOption.yAxis instanceof Array){
+        //   v.contentOption.yAxis = val.contentOption.yAxis[0];
+        // }
+        this.yType = val.contentOption.yAxis instanceof Array ? 1 : 0;
+        this.$set(this, "formData", val || this.formData);
+        this.$set(this, "seriesStyle", {
+          series: val.contentOption.series,
+          visualMap: val.contentOption.visualMap || null,
+          wholeRender: val.contentOption.wholeRender || 0
+        });
+      }
+    }
+  },
+  methods: {
+    refreshChart() {
+      this.$emit("update-chart");
+    }
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.basic-line {
+  ::v-deep .ant-form-item-label {
+    label {
+      color: $white;
+    }
+  }
+  ::v-deep .ant-input-number {
+    width: 100%;
+    @include inputNumberStyle;
+  }
+  ::v-deep .ant-tabs {
+    color: $white;
+    &-bar {
+      border: none;
+    }
+    &-tab-active,
+    &-tab:hover {
+      color: $brightGreen;
+    }
+    &-ink-bar {
+      background-color: $brightGreen;
+    }
+    &-tab-arrow-show {
+      color: $white;
+    }
+  }
+  .m-bottom-0 {
+    margin-bottom: 0;
+  }
+}
+</style>

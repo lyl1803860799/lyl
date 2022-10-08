@@ -1,0 +1,62 @@
+import axios from 'axios'
+import { message } from 'ant-design-vue'
+import qs from 'qs'
+import Cookies from 'js-cookie'
+// axios默认配置
+axios.defaults.timeout = 600000 // 超时时间
+axios.defaults.baseURL = process.env.VUE_APP_BASE_API // 默认地址
+axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
+axios.defaults.withCredentials = true
+
+// 异常拦截处理
+const errorHandler = (response) => {
+  if (response.data) {
+    // 当后台返回的status不是200
+    message.error(response.data.message)
+  } else {
+    // 浏览器请求失败
+    message.error(response.message)
+  }
+  return Promise.reject(response)
+}
+
+// 请求拦截器
+axios.interceptors.request.use(
+  (config) => {
+    // 发起请求时，取消掉当前正在进行的相同请求
+    // const token = sessionStorage.getItem('token')
+    // if (token) {
+    //   // 设置请求头
+    //   config.headers['user_token'] = token
+    // }
+    const flag =
+      config.headers['Content-Type'] &&
+      config.headers['Content-Type'].indexOf('application/x-www-form-urlencoded') !== -1
+    if (flag) {
+      config.data = qs.stringify(config.data)
+    }
+    return config
+  },
+  (err) => Promise.reject(err)
+)
+
+// 响应
+axios.interceptors.response.use((response) => {
+  const { data, config } = response
+  if (data.code == '100006') {
+    // message.error(data.message)
+    // sessionStorage.removeItem('token')
+    // window.location.reload()
+    Cookies.remove('useId')
+    Cookies.remove('userName')
+    Cookies.remove('user_token')
+    const prePath = process.env.NODE_ENV === 'production' ? '/datav' : ''
+    location.href = `${location.origin + prePath}/login.html#/`
+    return
+  }
+  if (data.code === '200' || config.responseType === 'blob') {
+    return data
+  }
+  return errorHandler(response)
+}, errorHandler)
+export default axios

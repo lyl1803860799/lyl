@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>钢联MTV</title>
+  <style>
+    html,body{
+	  margin:0;
+	  padding:0;
+      overflow: hidden;
+    }
+	.flag-area{
+		float:left;
+		width:460px;
+		height:200px;
+		line-height:200px;
+		font-size: 40px;
+		font-family: Microsoft YaHei;
+		font-weight: 400;
+		color: #00FCFF;
+		background:rgba(5, 35, 61, 0.8);
+		text-align:center;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+  </style>
+</head>
+
+<body>
+  <div class="flag-area" id="flagArea"></div>
+</body>
+<script>
+window.onload=function(){
+	let name = getQueryString(decodeURIComponent(window.location.href),'name');
+	document.getElementById("flagArea").innerHTML= name;
+	setTimeout(function(){
+		window.winClose();
+	},2000)
+}
+// 分割字符串
+    function getQueryString(url, name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var r = url.split("?")[1].match(reg);
+	  console.log(url.split("?")[1])
+      //console.log(r);
+      if (r != null) return unescape(r[2]);
+      return null;
+    }
+</script>
+</html>

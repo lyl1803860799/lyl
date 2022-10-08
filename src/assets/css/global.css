@@ -1,0 +1,12 @@
+html,body{
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: rgb(245,246,249);
+}
+
+
+img {
+    width:500px;
+    height:350px
+}

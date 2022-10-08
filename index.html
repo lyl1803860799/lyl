@@ -1,0 +1,125 @@
+﻿﻿<!DOCTYPE html>
+<html>
+<head> 
+<meta charset="utf-8"> 
+<title>测试</title> 
+</head> 
+<script src="qwebchannel.js"></script>
+<script>
+
+window.onload = function() {	
+        new QWebChannel(qt.webChannelTransport, function(channel){
+                window.webobj = channel.objects.webobj;
+        });
+}
+
+console.log(webobj)
+
+    var fullscreen = false;
+//     function onMax()
+//     {
+//         webobj.winMax();
+//     }
+
+    function onRestore()
+    {
+        webobj.winRestore();
+    }
+
+//     function onMin()
+//     {
+//             webobj.winMini();
+//     }
+
+//     function onEnableResize()
+//     {
+//         webobj.enableResize();
+//     }
+
+//     function onDisabelResize()
+//     {
+//         webobj.disableResize();
+//     }
+
+//     function onClose()
+//     {
+//             webobj.winClose();
+//     }
+
+    function onFullScreen()
+    {
+            if (this.fullscreen)
+            {
+                    var de = document;
+                    if (de.exitFullscreen) {
+                            de.exitFullscreen();
+                    } else if (de.mozCancelFullScreen) {
+                            de.mozCancelFullScreen();
+                    } else if (de.webkitCancelFullScreen) {
+                            de.webkitCancelFullScreen();
+                    }
+                    this.fullscreen = false;
+            }
+            else
+            {
+                    var de = document.documentElement;
+                    if (de.requestFullscreen) {
+                            de.requestFullscreen();
+                    } else if (de.mozRequestFullScreen) {
+                            de.mozRequestFullScreen();
+                    } else if (de.webkitRequestFullScreen) {
+                            de.webkitRequestFullScreen();
+                    }
+                    this.fullscreen = true;
+            }
+    }
+
+//     function onPlayMedia1()
+//     {
+//             webobj.playMedia("EKxr8FMzOUMNGg==", "https://www.163.com/");
+//     }
+
+//     function onPlayMedia2()
+//     {
+//             webobj.playMedia("EKxv8ElEUEMaGQ==", "https://www.163.com/");
+//     }
+
+//     function onGetMonitorInfo()
+//     {
+//             webobj.getMonitorInfo(function(event){
+//                 alert(event);
+//             });
+//     }
+
+    function onSaveChannel()
+    {
+        webobj.saveMonitorChannel("aaa", "bbbb", 123);
+    }
+
+    function onSaveConfig()
+    {
+
+    }
+
+    function onFlag()
+    {
+            webobj.showFlag();
+    }
+
+
+
+</script>
+<body>
+<!-- <button type="button" onclick="onMax();">最大化</button>  -->
+<button type="button" onclick="onRestore();">还原</button> 
+<button type="button" onclick="onFullScreen();">全屏</button> 
+<!-- <button type="button" onclick="onMin();">最小化</button>  -->
+<!-- <button type="button" onclick="onEnableResize();">允许Resize</button> 
+<button type="button" onclick="onDisabelResize();">禁止Resize</button>  -->
+<!-- <button type="button" onclick="onClose();">关闭</button>  -->
+<!-- <button type="button" onclick="onGetMonitorInfo();">获取屏幕信息</button>  -->
+<!-- <button type="button" onclick="onPlayMedia1();">屏幕1播放</button> 
+<button type="button" onclick="onPlayMedia2();">屏幕2播放</button>  -->
+<input type="text" name="test" value="test">
+</body>
+</html>

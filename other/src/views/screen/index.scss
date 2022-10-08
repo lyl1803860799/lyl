@@ -1,0 +1,1370 @@
+.main {
+    padding: 0 20px;
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+    background: #071426;
+
+    .top {
+        position: relative;
+        height: 56px;
+        line-height: 56px;
+        border-bottom: 2px solid #0e3753;
+        display: flex;
+        justify-content: space-between;
+
+        .page-title {
+            padding-left: 14px;
+            font-size: 14px;
+            font-family: Microsoft YaHei;
+            font-weight: bold;
+            color: #ffffff;
+
+            &::after {
+                content: " ";
+                display: inline-block;
+                position: absolute;
+                width: 4px;
+                height: 16px;
+                background: #00fcff;
+                left: 0;
+                top: 20px;
+            }
+        }
+
+        .remind-title {
+            width: 660px;
+            height: 40px;
+            line-height: 40px;
+            padding: 0 10px;
+            margin-top: 5px;
+            background: inherit;
+            background-color: #fff5e6;
+            box-sizing: border-box;
+            border: 1px solid rgba(255, 235, 204, 1);
+            border-radius: 5px;
+            -moz-box-shadow: none;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+            font-family: "微软雅黑", sans-serif;
+            font-weight: 400;
+            font-size: 12px;
+            font-style: normal;
+            color: #ff9900;
+            text-align: left;
+        }
+
+        .opationBtn {
+            float: right;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .flag-btn {
+                width: 80px;
+                height: 32px;
+                line-height: 32px;
+                color: #00fcff;
+                background: unset;
+                border: 1px solid #0e3753;
+                border-radius: 2px;
+                margin-right: 12px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                &:hover {
+                    color: #00FCFF;
+                    border: 1px solid #019BA7;
+                }
+            }
+
+            .all-play-btn {
+                width: 102px;
+                height: 32px;
+                border-radius: 2px;
+                background: inherit;
+                border: none;
+                font-weight: 400;
+                font-style: normal;
+                font-size: 16px;
+                color: #ffffff;
+                background: #019ba7;
+                padding: 0;
+                cursor: pointer;
+
+                &:hover {
+                    background: #00fcff;
+                }
+            }
+        }
+    }
+}
+
+.form-item-title {
+    float: left;
+    width: 80px;
+    display: block;
+    text-align: right;
+    color: #fff;
+}
+
+.define-input {
+    width: 360px !important;
+    margin-left: 10px;
+}
+
+::v-deep .ant-form-explain {
+    padding-left: 90px;
+}
+
+.group-tree {
+    width: 200px;
+    margin-left: 16px;
+}
+
+.search-input {
+    float: right;
+    width: 200px;
+    margin-right: 16px;
+
+    input {
+        padding-left: 10px;
+    }
+}
+
+.choose-modal {
+    .choose-list {
+        float: left;
+        width: 100%;
+        height: 208px;
+        border: 1px solid #0e3753;
+
+        .choose-pic {
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 162px;
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-bottom: 1px solid #0e3753;
+
+            .bg-pic {
+                position: absolute;
+                width: 100%;
+                height: 162px;
+                object-fit: fill;
+            }
+
+            .hover-modal {
+                position: absolute;
+                float: left;
+                width: 100%;
+                height: 162px;
+                border: 1px solid #00fcff;
+                background: #071426;
+                opacity: 0.9;
+
+                .hover-content {
+                    height: 162px;
+                    padding: 10px;
+                    color: #fff;
+                    font-size: 12px;
+
+                    .copy-btn {
+                        width: 60%;
+                        height: 40px;
+                        line-height: 40px;
+                        text-align: center;
+                        color: #fff;
+                        border-radius: 2px;
+                        background-color: #019BA7;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #05BFCE;
+                        }
+                    }
+
+                    .hover-title {
+                        margin-top: 5px;
+                        margin-bottom: 0;
+                    }
+
+                    .template-btn {
+                        text-align: center;
+
+                        .create-project {
+                            width: 60%;
+                            height: 40px;
+                            color: #fff;
+                            font-size: 14px;
+                            text-align: center;
+                            background: #019ba7;
+                            border-radius: 2px;
+                            border: 0;
+                            appearance: none;
+                            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                            outline: none;
+                        }
+
+                        .edit-project {
+                            width: 60%;
+                            height: 40px;
+                            margin-top: 29px;
+                            background: #019ba7;
+                            font-size: 14px;
+                            font-family: Microsoft YaHei;
+                            font-weight: 400;
+                            color: #ffffff;
+                        }
+                    }
+                }
+
+                .hover-info {
+                    height: 44px;
+                    line-height: 44px;
+                    color: #fff;
+                    font-size: 14px;
+                    background: #05233e;
+                }
+            }
+        }
+
+        .choose-info {
+            float: left;
+            width: 100%;
+            height: 44px;
+            line-height: 44px;
+            background: #05233d;
+
+            .copy-btn {
+                width: 60%;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                color: #fff;
+                border-radius: 2px;
+                background-color: #019BA7;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #05BFCE;
+                }
+            }
+
+            .define-checkbox {
+                float: right;
+                padding-right: 14px;
+
+                ::v-deep .ant-checkbox-inner {
+                    background-color: unset;
+                    border: 1px solid #00FCFF;
+                    border-radius: 100%;
+                }
+            }
+
+            .choose-name {
+                padding-left: 14px;
+                font-size: 14px;
+                color: #fff;
+            }
+        }
+    }
+}
+
+.choose-area {
+    float: left;
+    width: 100%;
+
+    .choose-list {
+        float: left;
+        width: 264px;
+        height: 184px;
+        margin-left: 16px;
+        margin-top: 20px;
+        border: 1px solid #0e3753;
+
+        .choose-pic {
+            position: relative;
+            width: 100%;
+            height: 150px;
+            background-size: 100%;
+            border-bottom: 1px solid #0e3753;
+
+            .bg-pic {
+                position: absolute;
+                width: 100%;
+                height: 150px;
+                object-fit: fill;
+            }
+
+            .hover-modal {
+                position: absolute;
+                width: 100%;
+                height: 150px;
+                border: 1px solid #00fcff;
+                background: rgba(0, 0, 0, 0.3);
+
+                .hover-content {
+                    padding: 10px;
+                    color: #fff;
+                    font-size: 12px;
+
+                    .copy-btn {
+                        width: 60%;
+                        height: 40px;
+                        line-height: 40px;
+                        text-align: center;
+                        color: #fff;
+                        border-radius: 2px;
+                        background-color: #019BA7;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #05BFCE;
+                        }
+                    }
+
+                    .hover-title {
+                        margin-top: 5px;
+                        margin-bottom: 0;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+
+        .choose-info {
+            height: 34px;
+            line-height: 34px;
+            background: #05233d;
+
+            .choose-name {
+                padding-left: 14px;
+                font-size: 14px;
+                color: #fff;
+            }
+
+            .copy-btn {
+                width: 60%;
+                height: 40px;
+                line-height: 40px;
+                text-align: center;
+                color: #fff;
+                background-color: #019BA7;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #05BFCE;
+                }
+            }
+
+            .define-checkbox {
+                float: right;
+                padding-right: 14px;
+
+                ::v-deep .ant-checkbox-inner {
+                    background-color: unset;
+                    border: 1px solid #0E3753;
+                    border-radius: 100%;
+                }
+            }
+        }
+    }
+}
+
+.no-data-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 98px;
+}
+
+.no-data {
+    width: 228px;
+    height: 110px;
+    background-size: 100%;
+    background-position: center;
+    background-image: url("../../assets/images/nodata.png");
+}
+
+.screen-edit-icon {
+    float: right;
+    width: 18px;
+    height: 18px;
+    margin-top: 13px;
+    margin-right: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 18px 18px;
+    background-image: url("../../assets/images/edit.png");
+    display: inline-block;
+    cursor: pointer;
+
+    &:hover {
+        background-image: url("../../assets/images/edit-hover.png");
+    }
+}
+
+.screen-channel-icon {
+    float: right;
+    width: 18px;
+    height: 18px;
+    margin-top: 13px;
+    margin-right: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 18px 18px;
+    background-image: url("../../assets/images/select-channel.png");
+    display: inline-block;
+    cursor: pointer;
+
+    &:hover {
+        background-image: url("../../assets/images/select-channel-hover.png");
+    }
+}
+
+.screen-play-icon {
+    float: right;
+    width: 18px;
+    height: 18px;
+    margin-top: 13px;
+    margin-right: 15px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 18px 18px;
+    background-image: url("../../assets/images/play.png");
+    display: inline-block;
+    cursor: pointer;
+
+    &:hover {
+        background-image: url("../../assets/images/play-hover.png");
+    }
+}
+
+.define-table {
+    background: unset;
+
+    ::v-deep .ant-table-placeholder {
+        background: unset;
+    }
+
+    ::v-deep .ant-table-tbody>tr {
+        float: left;
+        width: calc(33.33333333333333% - 20px);
+        margin-top: 20px;
+
+        &:hover {
+            background: unset !important;
+        }
+    }
+
+    ::v-deep .ant-table-tbody>tr {
+        float: left;
+        width: 100%;
+        border-bottom: 0;
+        margin-right: 25px;
+
+        &:hover {
+            background: unset !important;
+        }
+    }
+
+    ::v-deep .ant-table-tbody>tr:not(:nth-child(4n + 0)) {
+        margin-right: 25px;
+    }
+
+    ::v-deep .ant-table {
+        margin-bottom: 34px;
+    }
+
+    ::v-deep .screen-frame {
+        position: relative;
+        width: 100%;
+        height: 238px;
+        margin: auto;
+        //margin-top: 20px;
+        border: 1px solid #0e3753;
+
+        .screen-pic {
+            position: relative;
+            width: 100%;
+            height: 192px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            .no-use {
+                margin: 0;
+                padding-top:20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+            }
+
+            .bg-pic {
+                position: absolute;
+                width: 100%;
+                height: 192px;
+                object-fit: fill;
+            }
+
+            .hover-modal {
+                position: absolute;
+                width: 100%;
+                height: 192px;
+                border: 1px solid #00fcff;
+                background: rgba(0, 0, 0, 0.5);
+
+                .hover-content {
+                    padding: 10px;
+                    color: #fff;
+                    font-size: 12px;
+
+                    .hover-title {
+                        margin-top: 5px;
+                        margin-bottom: 0;
+                        color: #00fcff;
+                    }
+
+                    .hover-info {
+                        width: 100%;
+                        font-size: 12px;
+                        font-family: Microsoft YaHei;
+                        font-weight: 400;
+                        color: #fff;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                    }
+
+                    .other-info {
+                        margin-top: 60px;
+
+                        .remark {
+                            width: 100%;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                        }
+
+                        p {
+                            margin-bottom: 11px;
+                        }
+                    }
+                }
+            }
+
+            .screen-no-data {
+                display: flex;
+                height: 192px;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+
+                .screen-no-data-pic {
+                    width: 264px;
+                    height: 120px;
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                }
+
+                .screen-no-data-font {
+                    text-align: center;
+                    font-size: 14px;
+                    font-family: Microsoft YaHei;
+                    font-weight: 400;
+                    color: #00FCFF;
+                }
+            }
+
+        }
+
+        .screen-name {
+            height: 44px;
+            line-height: 44px;
+            padding-left: 10px;
+            border-top: 1px solid #0e3753;
+            font-size: 14px;
+            font-family: Microsoft YaHei;
+            font-weight: 400;
+            color: #ffffff;
+            background-color: #05233D;
+
+            .screen-name-font {
+                width: 50%;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                display: inline-block;
+
+                span {
+                    max-width: 200px;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    display: inline-block;
+                }
+            }
+        }
+
+        .screen-btn {
+            height: 36px;
+
+            .edit-area {
+                width: 90px;
+                height: 24px;
+                float: left;
+                line-height: 24px;
+                color: #666666;
+                text-align: center;
+                border-right: 1px solid #e9e9e9;
+                margin-top: 6px;
+                cursor: pointer;
+
+                .btn-txt {
+                    padding-left: 5px;
+                    font-weight: 300;
+                    font-style: normal;
+                    font-size: 12px;
+                }
+            }
+
+            .choose-channel {
+                width: calc(100% - 180px);
+                height: 24px;
+                float: left;
+                line-height: 24px;
+                text-align: center;
+                border-right: 1px solid #e9e9e9;
+                margin-top: 6px;
+                cursor: pointer;
+            }
+
+            .play-area {
+                width: 90px;
+                height: 24px;
+                float: left;
+                line-height: 24px;
+                text-align: center;
+                margin-top: 6px;
+                cursor: pointer;
+            }
+
+            .edit-area:hover,
+            .choose-channel:hover,
+            .play-area:hover {
+                color: #409eff;
+            }
+        }
+    }
+}
+
+.define-modal-table {
+    ::v-deep .ant-table-tbody>tr {
+        float: left;
+        width: 263px;
+        height: 184px;
+        margin-top: 16px;
+        margin-right: 16px;
+        border: 1px solid #0E3753;
+
+        &:hover {
+            background: unset !important;
+        }
+    }
+
+    ::v-deep .ant-table-tbody>tr>td {
+        float: left;
+        width: 100%;
+        border-bottom: 0;
+        padding: 0;
+    }
+
+    ::v-deep .ant-table-tbody>tr:nth-child(3n + 3) {
+        margin-right: 0;
+    }
+
+    ::v-deep .choose-modal {
+        .choose-list {
+            float: left;
+            width: 100%;
+            height: 184px;
+            border: 1px solid #0e3753;
+
+            .choose-pic {
+                position: relative;
+                float: left;
+                width: 100%;
+                height: 149px;
+                background-size: cover;
+                background-repeat: no-repeat;
+                border-bottom: 1px solid #0e3753;
+
+                .bg-pic {
+                    position: absolute;
+                    width: 100%;
+                    height: 149px;
+                    object-fit: fill;
+                }
+
+                .hover-modal {
+                    position: absolute;
+                    float: left;
+                    width: 100%;
+                    height: 149px;
+                    border: 1px solid #00fcff;
+                    background: #071426;
+                    opacity: 0.9;
+
+                    .hover-content {
+                        height: 149px;
+                        padding: 10px;
+                        color: #fff;
+                        display: flex;
+                        font-size: 12px;
+                        justify-content: center;
+                        align-items: center;
+
+                        .hover-title {
+                            margin-top: 5px;
+                            margin-bottom: 0;
+                        }
+
+                        .template-btn {
+                            text-align: center;
+
+                            .create-project {
+                                width: 60%;
+                                height: 40px;
+                                color: #fff;
+                                font-size: 14px;
+                                text-align: center;
+                                background: #019ba7;
+                                border-radius: 2px;
+                                border: 0;
+                                appearance: none;
+                                -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+                                outline: none;
+                            }
+
+                            .edit-project {
+                                width: 60%;
+                                height: 40px;
+                                margin-top: 29px;
+                                background: #019ba7;
+                                font-size: 14px;
+                                font-family: Microsoft YaHei;
+                                font-weight: 400;
+                                color: #ffffff;
+                            }
+                        }
+                    }
+
+                    .hover-info {
+                        height: 44px;
+                        line-height: 44px;
+                        color: #fff;
+                        font-size: 14px;
+                        background: #05233e;
+                    }
+                }
+            }
+
+            .choose-info {
+                float: left;
+                width: 100%;
+                height: 33px;
+                line-height: 33px;
+                background: #05233d;
+
+                .define-checkbox {
+                    float: right;
+                    padding-right: 14px;
+
+                    ::v-deep .ant-checkbox-inner {
+                        background-color: unset;
+                        border: 1px solid #00FCFF;
+                        border-radius: 100%;
+                    }
+
+                    .ant-checkbox-checked {
+                        .ant-checkbox-inner {
+                            background-color: #06e9ff !important;
+                        }
+
+                        .ant-checkbox-inner::after {
+                            border: 2px solid #000;
+                            border-top: 0;
+                            border-left: 0;
+                        }
+                    }
+                }
+
+                .choose-name {
+                    padding-left: 14px;
+                    font-size: 14px;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 992px) {
+    .main {
+        .content {
+            //padding: 10px 0;
+
+            .screen-list {
+                .define-table {
+                    background: unset;
+
+                    ::v-deep .ant-table-placeholder {
+                        background: unset;
+                    }
+
+                    ::v-deep .ant-table-tbody>tr {
+                        float: left;
+                        width: calc(33.33333333333333% - 20px);
+                        border-bottom: 0;
+                        margin-top: 25px;
+
+                        &:hover {
+                            background: unset !important;
+                        }
+                    }
+
+                    ::v-deep .ant-table-tbody>tr>td {
+                        float: left;
+                        width: 100%;
+                        border-bottom: 0;
+                        padding: 0;
+
+                        &:hover {
+                            background: unset !important;
+                        }
+                    }
+
+                    ::v-deep .ant-table-tbody>tr:not(:nth-child(4n + 0)) {
+                        margin-right: 25px;
+                    }
+
+                    ::v-deep .ant-table-tbody>tr:nth-child(3n + 3) {
+                        margin-right: 0;
+                    }
+
+                    ::v-deep .ant-table {
+                        margin-bottom: 64px;
+                    }
+
+                    ::v-deep .screen-frame {
+                        position: relative;
+                        width: 100%;
+                        height: 238px;
+                        margin: auto;
+                        //margin-top: 20px;
+                        border: 1px solid #0e3753;
+
+                        .screen-pic {
+                            position: relative;
+                            width: 100%;
+                            height: 192px;
+                            background-size: cover;
+                            background-position: center;
+                            background-repeat: no-repeat;
+
+                            .no-use {
+                                margin: 0;
+                                padding-top:20px;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                flex-direction: column;
+                            }
+
+                            .bg-pic {
+                                position: absolute;
+                                width: 100%;
+                                height: 192px;
+                                object-fit: fill;
+                            }
+
+                            .hover-modal {
+                                position: absolute;
+                                width: 100%;
+                                height: 192px;
+                                border: 1px solid #00fcff;
+                                background: rgba(0, 0, 0, 0.5);
+
+                                .hover-content {
+                                    padding: 10px;
+                                    color: #fff;
+                                    font-size: 12px;
+
+                                    .hover-title {
+                                        margin-top: 5px;
+                                        margin-bottom: 0;
+                                        color: #00fcff;
+                                    }
+
+                                    .hover-info {
+                                        width: 100%;
+                                        font-size: 12px;
+                                        font-family: Microsoft YaHei;
+                                        font-weight: 400;
+                                        color: #fff;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                    }
+
+                                    .other-info {
+                                        margin-top: 60px;
+
+                                        .remark {
+                                            width: 100%;
+                                            overflow: hidden;
+                                            text-overflow: ellipsis;
+                                            white-space: nowrap;
+                                        }
+
+                                        p {
+                                            margin-bottom: 11px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        .screen-name {
+                            height: 44px;
+                            line-height: 44px;
+                            padding-left: 10px;
+                            border-top: 1px solid #0e3753;
+                            font-size: 14px;
+                            font-family: Microsoft YaHei;
+                            font-weight: 400;
+                            color: #ffffff;
+                            background-color: #05233D;
+
+                            .screen-name-font {
+                                width: 50%;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                display: inline-block;
+
+                                span {
+                                    max-width: 160px;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                    display: inline-block;
+                                }
+                            }
+                        }
+
+                        .screen-btn {
+                            height: 36px;
+
+                            .edit-area {
+                                width: 90px;
+                                height: 24px;
+                                float: left;
+                                line-height: 24px;
+                                color: #666666;
+                                text-align: center;
+                                border-right: 1px solid #e9e9e9;
+                                margin-top: 6px;
+                                cursor: pointer;
+
+                                .btn-txt {
+                                    padding-left: 5px;
+                                    font-weight: 300;
+                                    font-style: normal;
+                                    font-size: 12px;
+                                }
+                            }
+
+                            .choose-channel {
+                                width: calc(100% - 180px);
+                                height: 24px;
+                                float: left;
+                                line-height: 24px;
+                                text-align: center;
+                                border-right: 1px solid #e9e9e9;
+                                margin-top: 6px;
+                                cursor: pointer;
+                            }
+
+                            .play-area {
+                                width: 90px;
+                                height: 24px;
+                                float: left;
+                                line-height: 24px;
+                                text-align: center;
+                                margin-top: 6px;
+                                cursor: pointer;
+                            }
+
+                            .edit-area:hover,
+                            .choose-channel:hover,
+                            .play-area:hover {
+                                color: #409eff;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: 1300px) {
+    .content {
+        //padding: 10px 0;
+
+        .screen-list {
+            .define-table {
+                background: unset;
+
+                ::v-deep .ant-table-placeholder {
+                    background: unset;
+                }
+
+                ::v-deep .ant-table-tbody>tr {
+                    float: left;
+                    width: calc(20% - 20px) !important;
+                    margin-top: 20px;
+
+                    &:hover {
+                        background: unset !important;
+                    }
+                }
+
+                ::v-deep .ant-table-tbody>tr>td {
+                    float: left;
+                    width: 100%;
+                    border-bottom: 0;
+                    padding: 0;
+
+                    &:hover {
+                        background: unset !important;
+                    }
+                }
+
+                ::v-deep .ant-table-tbody>tr:not(:nth-child(4n + 0)) {
+                    margin-right: 25px;
+                }
+
+                ::v-deep .ant-table-tbody>tr:nth-child(3n + 3) {
+                    margin-right: 25px !important;
+                }
+
+                ::v-deep .ant-table-tbody>tr:nth-child(5n + 5) {
+                    margin-right: 0 !important;
+                }
+
+                ::v-deep .ant-table {
+                    margin-bottom: 64px;
+                }
+
+                ::v-deep .screen-frame {
+                    position: relative;
+                    width: 100%;
+                    height: 238px;
+                    margin: auto;
+                    //margin-top: 20px;
+                    border: 1px solid #0e3753;
+
+                    .screen-pic {
+                        position: relative;
+                        width: 100%;
+                        height: 192px;
+                        background-size: cover;
+                        background-position: center;
+                        background-repeat: no-repeat;
+
+                        .no-use {
+                            margin: 0;
+                            padding-top:20px;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center;
+                            flex-direction: column;
+                        }
+
+                        .bg-pic {
+                            position: absolute;
+                            width: 100%;
+                            height: 192px;
+                            object-fit: fill;
+                        }
+
+                        .hover-modal {
+                            position: absolute;
+                            width: 100%;
+                            height: 192px;
+                            border: 1px solid #00fcff;
+                            background: rgba(0, 0, 0, 0.5);
+
+                            .hover-content {
+                                padding: 10px;
+                                color: #fff;
+                                font-size: 12px;
+
+                                .hover-title {
+                                    margin-top: 5px;
+                                    margin-bottom: 0;
+                                    color: #00fcff;
+                                }
+
+                                .hover-info {
+                                    width: 100%;
+                                    font-size: 12px;
+                                    font-family: Microsoft YaHei;
+                                    font-weight: 400;
+                                    color: #fff;
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    white-space: nowrap;
+                                }
+
+                                .other-info {
+                                    margin-top: 60px;
+
+                                    .remark {
+                                        width: 100%;
+                                        overflow: hidden;
+                                        text-overflow: ellipsis;
+                                        white-space: nowrap;
+                                    }
+
+                                    p {
+                                        margin-bottom: 11px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .screen-name {
+                        height: 44px;
+                        line-height: 44px;
+                        padding-left: 10px;
+                        border-top: 1px solid #0e3753;
+                        font-size: 14px;
+                        font-family: Microsoft YaHei;
+                        font-weight: 400;
+                        color: #ffffff;
+                        background-color: #05233D;
+
+                        .screen-name-font {
+                            width: 50%;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            white-space: nowrap;
+                            display: inline-block;
+
+                            span {
+                                max-width: 200px;
+                                overflow: hidden;
+                                text-overflow: ellipsis;
+                                white-space: nowrap;
+                                display: inline-block;
+                            }
+                        }
+                    }
+
+                    .screen-btn {
+                        height: 36px;
+
+                        .edit-area {
+                            width: 90px;
+                            height: 24px;
+                            float: left;
+                            line-height: 24px;
+                            color: #666666;
+                            text-align: center;
+                            border-right: 1px solid #e9e9e9;
+                            margin-top: 6px;
+                            cursor: pointer;
+
+                            .btn-txt {
+                                padding-left: 5px;
+                                font-weight: 300;
+                                font-style: normal;
+                                font-size: 12px;
+                            }
+                        }
+
+                        .choose-channel {
+                            width: calc(100% - 180px);
+                            height: 24px;
+                            float: left;
+                            line-height: 24px;
+                            text-align: center;
+                            border-right: 1px solid #e9e9e9;
+                            margin-top: 6px;
+                            cursor: pointer;
+                        }
+
+                        .play-area {
+                            width: 90px;
+                            height: 24px;
+                            float: left;
+                            line-height: 24px;
+                            text-align: center;
+                            margin-top: 6px;
+                            cursor: pointer;
+                        }
+
+                        .edit-area:hover,
+                        .choose-channel:hover,
+                        .play-area:hover {
+                            color: #409eff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.define-modal {
+    ::v-deep .ant-modal-header {
+        background: unset;
+        border-bottom: 0;
+    }
+
+    ::v-deep .ant-modal-body {
+        max-height: 600px;
+    }
+
+    ::v-deep .ant-modal-footer {
+        width: 98%;
+        margin-left: 8px;
+        border-top: 1px solid #0e3753;
+    }
+
+    ::v-deep .anticon-close {
+        color: #00fcff;
+        transition: all 0.3s ease;
+    }
+
+    ::v-deep .ant-modal-title {
+        color: #fff;
+        font-size: 14px;
+
+        &::after {
+            content: " ";
+            display: inline-block;
+            position: absolute;
+            width: 4px;
+            height: 16px;
+            background: #00fcff;
+            left: 12px;
+            top: 19px;
+        }
+    }
+}
+
+::v-deep .copy-link-input {
+    input {
+        color: #fff !important;
+    }
+}
+
+
+::v-deep .ant-form-item-label {
+    label {
+        color: #fff !important;
+    }
+}
+
+::v-deep .ant-select-selection__clear {
+    color: #fff !important;
+    background: #0e3753 !important;
+}
+
+::v-deep .ant-pagination-total-text {
+    color: #fff;
+    font-size: 14px;
+}
+
+::v-deep .ant-pagination-item {
+    background: #071426;
+    border: 1px solid #0e3753;
+    border-radius: 2px;
+
+    a {
+        color: #fff;
+    }
+}
+
+::v-deep .ant-pagination-prev,
+::v-deep .ant-pagination-next {
+    .ant-pagination-item-link {
+        background: #071426;
+        border: 1px solid #0e3753;
+        border-radius: 2px;
+
+        .anticon-left,
+        .anticon-right {
+            color: #fff;
+        }
+    }
+}
+
+::v-deep .ant-pagination-item-active {
+    color: #fff;
+    background: #019ba7;
+
+    a {
+        color: #fff;
+    }
+}
+
+::v-deep .ant-pagination-options-quick-jumper {
+    color: #fff;
+
+    input {
+        width: 32px;
+        height: 32px;
+        padding: 0;
+        color: #fff;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        background-color: #071426;
+        background-image: none;
+        border: 1px solid #0e3753;
+    }
+}
+
+::v-deep .ant-pagination {
+    float: unset;
+    text-align: center;
+}
+
+::v-deep .ant-select-selection__clear {
+    color: #fff !important;
+    background: #0e3753 !important;
+}
+
+::v-deep .ant-input-search-icon {
+    color: #00FCFF !important;
+}
+
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 1000;
+}

@@ -1,0 +1,337 @@
+<template>
+  <section class="chart-component">
+    <ul class="chart-component__header-wrapper">
+      <li
+        :class="`chart-component__header-title ${activeKey === index ? 'active' : ''}`"
+        v-for="(panel, index) in list2"
+        :key="`${index + 1}`"
+        @click="handleClick(index)"
+      >
+        {{ panel.header }}
+      </li>
+    </ul>
+    <div class="chart-component__body-wrapper">
+      <div class="upload-btn-wrapper m-top-20" v-if="curPanel.slot === 'img'">
+        <a-upload
+          name="file"
+          accept="image/*"
+          :showUploadList="false"
+          :customRequest="customRequest"
+          @change="handleChange"
+        >
+          <add-btn title="点击上传图片"> </add-btn>
+        </a-upload>
+      </div>
+      <div class="drag-area">
+        <div
+          v-for="(element, i) in curPanel.value"
+          draggable="true"
+          :key="element.id + curPanel.header + i"
+          class="drag-item"
+          @click="handleDragStart(element, 'click')"
+          @dragstart="handleDragStart(element)"
+          @dragend="handleDragEnd"
+        >
+          <a-tooltip :title="element.title.name">
+            <div class="drag-item-handle2">{{ element.title.name }}</div>
+          </a-tooltip>
+          <div class="drag-icon" :style="{ backgroundImage: `url(${element.img})` }"></div>
+          <div
+            class="drag-item-del"
+            v-if="curPanel.slot === 'img'"
+            @click.stop="handleDel(element)"
+          ></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</template>
+
+<script>
+import { mapActions } from 'vuex'
+import addBtn from '@/components/addBtn'
+import { dataSourceFileUpload } from '@/api/dataSource'
+import { queryAssembly } from '@/api/myCom'
+import { createSource, getSourceList, delSource } from '@/api/source'
+import { imageOption } from '@/constants/config-panel/style'
+import { list } from '@/utils/constants'
+
+export default {
+  name: 'ChartComponent',
+  props: ['active'],
+  components: { addBtn },
+  data() {
+    return {
+      activeKey: 0,
+      totalComponent: list,
+      list2: []
+    }
+  },
+  computed: {
+    curPanel() {
+      return this.list2[this.activeKey] || {}
+    }
+  },
+  watch: {
+    active: {
+      immediate: true,
+      handler(val) {
+        if (val) {
+          this.activeKey = 0
+          this.setList2()
+        }
+      }
+    }
+  },
+  methods: {
+    ...mapActions(['setComponentList']),
+    handleDragStart(el, action) {
+      this.$emit('dragstart', { el, action })
+    },
+    handleDragEnd() {
+      this.$emit('dragend')
+    },
+    setList2() {
+      let all = null
+      const list = this.totalComponent[this.active]
+      if (list.length > 1) {
+        all = {
+          header: '全部',
+          value: list.reduce((pre, next) => {
+            return pre.concat(...next.value)
+          }, [])
+        }
+      }
+      if (list.length === 0) {
+        all = {
+          header: '全部',
+          value: []
+        }
+      }
+      this.list2 = [all, ...list].filter((item) => item)
+    },
+    async customRequest(param) {
+      const pramas = {
+        file: param.file
+      }
+      const { data } = await dataSourceFileUpload(pramas)
+      this.$message.success('上传成功')
+      this.fileUrl = data.fileUrl
+      let sourceParams = {
+        sourceName: data.fileName || '图片',
+        sourceType: 1,
+        sourceUrl: data.fileUrl,
+        setJson: JSON.stringify({ ...imageOption.call(this), data: data.fileUrl })
+      }
+      await createSource(sourceParams)
+      this.getImageList()
+    },
+    handleChange() {},
+    // 获取图片列表
+    async getImageList(isMouted = false) {
+      const { data } = {data:{list:null}};
+      // await getSourceList({
+      //   sourceType: 1,
+      //   pageSize: 10000,
+      //   pageNum: 1
+      // })
+      const imgList = this.totalComponent.report || []
+      imgList.map((item) => {
+        if (item.slot === 'img') {
+          item.value = (data.list || []).map((listItem, i) => {
+            return {
+              id: `image-style${i}`,
+              componentName: 'bi-image',
+              title: {
+                name: listItem.sourceName,
+                style: { fontFamily: 'sans-serif', fontSize: 14 }
+              },
+              img: listItem.sourceUrl,
+              sourceId: listItem.id,
+              contentOption: (listItem.setJson && JSON.parse(listItem.setJson)) || {}
+            }
+          })
+        }
+        return item
+      })
+      if (!isMouted) {
+        this.setComponentList(this.totalComponent)
+      }
+    },
+    // 获取收藏列表
+    async getSavedComponent(isMouted = false) {
+      const { data } = await queryAssembly({
+        assemblyName: '',
+        pageSize: 10000,
+        pageNum: 1
+      })
+      const saveList = this.totalComponent.save || []
+      saveList.map((item) => {
+        if (item.slot === 'save') {
+          item.value = (data.list || [])
+            .filter((filterItem) => {
+              try {
+                JSON.parse(filterItem.assemblyJson)
+                return true
+              } catch {
+                return false
+              }
+            })
+            .map((listItem, index) => {
+              const itemDetail = listItem.assemblyJson ? JSON.parse(listItem.assemblyJson) : {}
+              if (itemDetail.option.dataConfig) {
+                const editorContent = itemDetail.option?.dataConfig?.dataSource?.editorContent
+                const dataContent = itemDetail.option?.dataConfig?.dataSource?.dataContent
+                itemDetail.option.dataConfig = {
+                  ...itemDetail.option.dataConfig,
+                  dataSource: {
+                    ...itemDetail.option.dataConfig.dataSource,
+                    editorContent:
+                      typeof editorContent === 'object'
+                        ? JSON.stringify(editorContent)
+                        : editorContent,
+                    dataContent:
+                      typeof dataContent === 'object' ? JSON.stringify(dataContent) : dataContent
+                  }
+                }
+              }
+              itemDetail.title.name = listItem.assemblyName
+              itemDetail.option.title.name = listItem.assemblyName
+              return {
+                ...listItem,
+                ...itemDetail,
+                img: listItem.snapshot,
+                id: `${itemDetail.id}${index}`
+              }
+            })
+        }
+        return item
+      })
+      if (!isMouted) {
+        this.setComponentList(this.totalComponent)
+      }
+    },
+    // 删除图片
+    handleDel({ sourceId }) {
+      this.$confirm({
+        title: '提示',
+        content: '是否确认删除该图片？',
+        onOk: async () => {
+          await delSource({ id: sourceId })
+          this.$message.success('删除成功')
+          this.getImageList()
+        },
+        onCancel() {}
+      })
+    },
+    handleClick(index) {
+      this.activeKey = index
+    }
+  },
+  async mounted() {
+    await this.getImageList(true)
+    //await this.getSavedComponent(true)
+    this.setComponentList(this.totalComponent)
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+.chart-component {
+  display: flex;
+  align-items: flex-start;
+  background: $db37;
+  color: $white;
+  height: 100%;
+  overflow: hidden;
+
+  &__header-wrapper {
+    height: 100%;
+    background-color: $db36;
+    flex-basis: 62px;
+    flex-shrink: 0;
+    overflow-y: auto;
+  }
+  &__header-title {
+    height: 56px;
+    line-height: 56px;
+    font-size: 12px;
+    text-align: center;
+    cursor: pointer;
+    &.active {
+      color: $db33;
+      background-color: $db37;
+    }
+  }
+  &__body-wrapper {
+    padding: 0 14px;
+    flex: 1;
+    height: 100%;
+    overflow-y: auto;
+  }
+}
+.drag-area {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  padding-bottom: 20px;
+
+  .drag-item {
+    width: 100%;
+    height: 110px;
+    border-radius: 4px;
+    margin-top: 20px;
+    border: 1px solid $db38;
+    cursor: move;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    .drag-item-handle2 {
+      height: 24px;
+      line-height: 24px;
+      padding-left: 10px;
+      background: linear-gradient(90deg, #008287, #052549);
+      box-shadow: 0px 1px 8px 0px rgba(99, 247, 255, 0.06);
+      border-radius: 2px 2px 0px 0px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .drag-icon {
+      flex: 1;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center center;
+    }
+
+    .drag-item-del {
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      width: 16px;
+      height: 16px;
+      z-index: 9;
+      display: none;
+      background-image: url(../../assets/home-project/delete.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center center;
+      cursor: pointer;
+      &:hover {
+        background-image: url(../../assets/home-project/delete_active.png);
+      }
+    }
+    &:hover {
+      border: 2px solid $brightGreen;
+      .drag-item-del {
+        display: block;
+      }
+    }
+  }
+}
+.upload-btn-wrapper {
+  text-align: center;
+  width: 100%;
+}
+</style>

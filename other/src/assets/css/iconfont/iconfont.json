@@ -1,0 +1,303 @@
+{
+  "id": "2950930",
+  "name": "天气",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "200972",
+      "name": "3.1多云",
+      "font_class": "duoyun",
+      "unicode": "e600",
+      "unicode_decimal": 58880
+    },
+    {
+      "icon_id": "5996685",
+      "name": "阴",
+      "font_class": "weather-3",
+      "unicode": "e6e5",
+      "unicode_decimal": 59109
+    },
+    {
+      "icon_id": "5996686",
+      "name": "中雨",
+      "font_class": "weather-9",
+      "unicode": "e6e6",
+      "unicode_decimal": 59110
+    },
+    {
+      "icon_id": "5996687",
+      "name": "小雨",
+      "font_class": "weather-8",
+      "unicode": "e6e7",
+      "unicode_decimal": 59111
+    },
+    {
+      "icon_id": "5996688",
+      "name": "暴雨",
+      "font_class": "weather-11",
+      "unicode": "e6e8",
+      "unicode_decimal": 59112
+    },
+    {
+      "icon_id": "5996689",
+      "name": "大雨",
+      "font_class": "weather-10",
+      "unicode": "e6e9",
+      "unicode_decimal": 59113
+    },
+    {
+      "icon_id": "5996690",
+      "name": "晴",
+      "font_class": "weather-1",
+      "unicode": "e6ea",
+      "unicode_decimal": 59114
+    },
+    {
+      "icon_id": "5996692",
+      "name": "大暴雨",
+      "font_class": "weather-12",
+      "unicode": "e6eb",
+      "unicode_decimal": 59115
+    },
+    {
+      "icon_id": "5996693",
+      "name": "雷阵雨",
+      "font_class": "weather-5",
+      "unicode": "e6ec",
+      "unicode_decimal": 59116
+    },
+    {
+      "icon_id": "5996694",
+      "name": "特大暴雨",
+      "font_class": "weather-13",
+      "unicode": "e6ed",
+      "unicode_decimal": 59117
+    },
+    {
+      "icon_id": "5996695",
+      "name": "雷电",
+      "font_class": "thunder",
+      "unicode": "e6ee",
+      "unicode_decimal": 59118
+    },
+    {
+      "icon_id": "5996696",
+      "name": "阵雨",
+      "font_class": "weather-4",
+      "unicode": "e6ef",
+      "unicode_decimal": 59119
+    },
+    {
+      "icon_id": "5996698",
+      "name": "小雪",
+      "font_class": "weather-15",
+      "unicode": "e6f0",
+      "unicode_decimal": 59120
+    },
+    {
+      "icon_id": "5996699",
+      "name": "冰雹",
+      "font_class": "hail",
+      "unicode": "e6f1",
+      "unicode_decimal": 59121
+    },
+    {
+      "icon_id": "5996700",
+      "name": "大雪",
+      "font_class": "weather-17",
+      "unicode": "e6f2",
+      "unicode_decimal": 59122
+    },
+    {
+      "icon_id": "5996701",
+      "name": "中雪",
+      "font_class": "weather-16",
+      "unicode": "e6f3",
+      "unicode_decimal": 59123
+    },
+    {
+      "icon_id": "5996702",
+      "name": "雨夹雪",
+      "font_class": "weather-7",
+      "unicode": "e6f4",
+      "unicode_decimal": 59124
+    },
+    {
+      "icon_id": "5996703",
+      "name": "雾",
+      "font_class": "weather-19",
+      "unicode": "e6f5",
+      "unicode_decimal": 59125
+    },
+    {
+      "icon_id": "5996706",
+      "name": "扬沙",
+      "font_class": "stand-storm",
+      "unicode": "e6f6",
+      "unicode_decimal": 59126
+    },
+    {
+      "icon_id": "5996707",
+      "name": "浮尘",
+      "font_class": "floating-dust",
+      "unicode": "e6f7",
+      "unicode_decimal": 59127
+    },
+    {
+      "icon_id": "5996708",
+      "name": "沙尘暴",
+      "font_class": "weather-21",
+      "unicode": "e6f8",
+      "unicode_decimal": 59128
+    },
+    {
+      "icon_id": "5996709",
+      "name": "霾",
+      "font_class": "haze",
+      "unicode": "e6f9",
+      "unicode_decimal": 59129
+    },
+    {
+      "icon_id": "5996710",
+      "name": "霜冻",
+      "font_class": "frost",
+      "unicode": "e6fa",
+      "unicode_decimal": 59130
+    },
+    {
+      "icon_id": "5996711",
+      "name": "华氏度",
+      "font_class": "fahrenheit-degree",
+      "unicode": "e6fb",
+      "unicode_decimal": 59131
+    },
+    {
+      "icon_id": "5996714",
+      "name": "五级风",
+      "font_class": "force-5-wind",
+      "unicode": "e6fc",
+      "unicode_decimal": 59132
+    },
+    {
+      "icon_id": "5996716",
+      "name": "台风",
+      "font_class": "typhoon",
+      "unicode": "e6fd",
+      "unicode_decimal": 59133
+    },
+    {
+      "icon_id": "5996717",
+      "name": "六级风",
+      "font_class": "force-6-wind",
+      "unicode": "e6fe",
+      "unicode_decimal": 59134
+    },
+    {
+      "icon_id": "5996718",
+      "name": "七级风",
+      "font_class": "force-7-wind",
+      "unicode": "e6ff",
+      "unicode_decimal": 59135
+    },
+    {
+      "icon_id": "5996719",
+      "name": "八级风",
+      "font_class": "force-8-wind",
+      "unicode": "e700",
+      "unicode_decimal": 59136
+    },
+    {
+      "icon_id": "5996720",
+      "name": "九级风",
+      "font_class": "force-9-wind",
+      "unicode": "e701",
+      "unicode_decimal": 59137
+    },
+    {
+      "icon_id": "5996721",
+      "name": "十一级风",
+      "font_class": "force-11-wind",
+      "unicode": "e702",
+      "unicode_decimal": 59138
+    },
+    {
+      "icon_id": "5996722",
+      "name": "十二级及以上台风",
+      "font_class": "force-12-wind",
+      "unicode": "e703",
+      "unicode_decimal": 59139
+    },
+    {
+      "icon_id": "5996723",
+      "name": "夜晚",
+      "font_class": "night",
+      "unicode": "e704",
+      "unicode_decimal": 59140
+    },
+    {
+      "icon_id": "5996724",
+      "name": "雨天",
+      "font_class": "rain",
+      "unicode": "e705",
+      "unicode_decimal": 59141
+    },
+    {
+      "icon_id": "5996725",
+      "name": "日落",
+      "font_class": "sunset",
+      "unicode": "e706",
+      "unicode_decimal": 59142
+    },
+    {
+      "icon_id": "5996726",
+      "name": "温度",
+      "font_class": "temperature",
+      "unicode": "e707",
+      "unicode_decimal": 59143
+    },
+    {
+      "icon_id": "5996727",
+      "name": "风向",
+      "font_class": "wind-direction",
+      "unicode": "e708",
+      "unicode_decimal": 59144
+    },
+    {
+      "icon_id": "5996728",
+      "name": "湿度",
+      "font_class": "humidity",
+      "unicode": "e709",
+      "unicode_decimal": 59145
+    },
+    {
+      "icon_id": "5996729",
+      "name": "春",
+      "font_class": "spring",
+      "unicode": "e70a",
+      "unicode_decimal": 59146
+    },
+    {
+      "icon_id": "5996730",
+      "name": "夏",
+      "font_class": "summer",
+      "unicode": "e70b",
+      "unicode_decimal": 59147
+    },
+    {
+      "icon_id": "5996731",
+      "name": "十级风",
+      "font_class": "force-10-wind",
+      "unicode": "e70c",
+      "unicode_decimal": 59148
+    },
+    {
+      "icon_id": "5996732",
+      "name": "秋",
+      "font_class": "autumn",
+      "unicode": "e70d",
+      "unicode_decimal": 59149
+    }
+  ]
+}
