@@ -16,15 +16,29 @@
 
 <script>
 export default {
-    props: ['dataList'],
     data() {
         return {
             colorList: ['primary','success','warning', 'danger', 'info'],
         }
     },
+    props: {
+        other: {
+            default: false,
+            type: Boolean,
+        },
+        dataList: {
+            type: Array,
+            default: () => {[]},
+        }
+    },
     methods: {
         urlChange(url) {
-            this.$router.push(`${url}`)
+            if(this.other) {
+                // window.history.pushState({}, 0,  url );
+                window.location.href = url
+            }else {
+                this.$router.push(`${url}`)
+            }
         }
     }
 }

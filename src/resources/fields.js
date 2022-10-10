@@ -1,5 +1,6 @@
 // 页面布局框架
 import Layout from '@/views/layout.vue';
+import Blog from '@/views/blog.vue';
 
 
 const fields = [
@@ -26,7 +27,18 @@ const fields = [
                 },
             }
         ],
-    },{
+    },
+    {
+        path: '/blog',
+        component: Blog,
+        // 重定向可能导致router-view不起作用
+        // redirect: '/blog',
+        meta: {
+            title: '首页',
+            icon: 'fa fa-yx-home',
+        },
+    },
+    {
         name: 'web',
         path: '/web',
         component: Layout,

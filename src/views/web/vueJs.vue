@@ -1,6 +1,6 @@
 <template>
   <div id="vueJs-container">
-      <link-list :dataList="dataList" />
+      <link-list :dataList="dataList" :other="false" />
       <router-view></router-view>
   </div>
 </template>
