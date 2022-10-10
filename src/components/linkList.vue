@@ -18,7 +18,7 @@
 export default {
     data() {
         return {
-            colorList: ['primary','success','warning', 'danger', 'info'],
+            colorList: ['primary','success','warning', 'danger', 'info','red','yellow'],
         }
     },
     props: {
